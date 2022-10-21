@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Specify a custom TailwindCSS configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+              extend: {
+                  colors: {
+                      'primary': '#FFD366',
+                      'secondary': '#424242',
+                      'third':'#B1B1B1',
+                  }
+              }
+          }
+      }
+    </script>
+  </head>
+  <body class="" >
+    <header class="">
+      <div class="flex bg-secondary justify-center  lg:w-3/4 py-8 mx-auto mt-8  items-center ">
+        <div class="logo w-24">
+          <img class="bg-cover" src="./BMICLogo.png" alt="logo">
+        </div>
+        <div class="input mx-5 md:mx-10 lg:mx-20">
+          <div class="mb-2 text-sm">
+            <label class="text-primary" for="">身高 cm
+              <br>
+              <input id="height" class="rounded-xl bg-gray-500 border-solid border-2 border-primary 
+              focus:border-primary focus:outline-0  placeholder-gray-300 py-1 pl-2 "  type="text"  placeholder="請輸入身高" >
+            </label>
+          </div>
+          <div class="text-sm">
+            <label class="text-primary" for="">體重 kg
+              <br>
+              <input id="weight" class="placeholder-gray-300 rounded-xl bg-gray-500 border-solid border-2 border-primary 
+              focus:border-primary focus:outline-0 py-1 pl-2" type="text"  placeholder="請輸入體重">
+            </label>
+          </div>
+        </div>
+        <button id="btn" class="font-bold text-secondary text-xs sm:text-base py-4 sm:py-6 px-2 md:px-3  rounded-full bg-primary">看結果</button>
+      </div>
+    </header>
+    <div class="mx-auto lg:w-3/4 py-4 bg-gray-100">
+      <h2 class="text-center  text-3xl font-bold my-4">BMI紀錄</h2>
+      <div id="list"></div>
+    </div>
+    <footer class="bg-primary py-4 lg:w-3/4 mx-auto">
+      <img class="brightness-0 w-12 mx-auto " src="./BMICLogo.png" alt="">
+    </footer>
+  
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+
+    <script>
+      
+    </script>
+    <script src="./all.js"></script>
+  </body>
+</html>
