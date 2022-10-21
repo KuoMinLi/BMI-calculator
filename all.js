@@ -20,26 +20,34 @@ const list = document.getElementById('list');
 const ref = firebase.database().ref();
 ref.on('value', function(snapshat) { 
   let str = '';
-  let data = snapshat.val();
+  let data = [];
+  snapshat.forEach(function(item) {
+    data.push({
+      key: item.key,
+      content: item.val()
+    });
+  });
+  data.reverse();
   for (let item in data){
-    str += `<div  data-key=${item} class="gap-3 w-5/6 md:w-3/4 flex flex-wrap justify-between bg-white mx-auto mb-4 px-4 items-center py-3 border-l-4 border-${data[item].color}">
-              <div class="title text-xl w-24">${data[item].state}</div>
+    str += `<div  data-key=${data[item].key} class="gap-3 w-5/6 md:w-3/4 flex flex-wrap justify-between bg-white
+              mx-auto mb-4 px-4 items-center py-3 border-l-4 border-${data[item].content.color}">
+              <div class="title text-xl w-24">${data[item].content.state}</div>
               <div class="bmi flex items-center">
                 <p class="mr-2">BMI</p>
-                <span class="text-xl">${data[item].bmi}</span>
+                <span class="text-xl">${data[item].content.bmi}</span>
               </div>
               <div class="weight flex items-center">
                 <p class="mr-2">體重</p>
-                <span class="text-xl">${data[item].weight}</span>
+                <span class="text-xl">${data[item].content.weight}</span>
                 <span class="text-xl">kg</span>          
               </div>
               <div class="height flex items-center">
                 <p class="mr-2">身高</p>
-                <span class="text-xl">${data[item].height}</span>
+                <span class="text-xl">${data[item].content.height}</span>
                 <span class="text-xl">cm</span>
               </div>
               <div class="date">
-                <span>${data[item].date}</span>
+                <span>${data[item].content.date}</span>
               </div>
               <i class="fa-solid fa-trash ml-2 cursor-pointer"></i>
             </div>`;
